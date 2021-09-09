@@ -15,6 +15,11 @@
   },
   "devDependencies": {
     "@sanity/cli": "^2.0.0",
-    "lerna": "^3.14.0"
+    "autoprefixer": "^10.3.1",
+    "lerna": "^3.14.0",
+    "svelte-preprocess": "^4.7.4"
+  },
+  "dependencies": {
+    "sass": "^1.37.5"
   }
 }

@@ -1,0 +1,202 @@
+// global.scss
+@import "./theme.scss";
+@import "./base.scss";
+
+body {
+	background: var(--background-color);
+	color: var(--text);
+}
+
+  /* ======================================
+  ========================================= TYPOGRAPHY
+  ====================================== */
+  
+  html {
+	font-family: garamond-premier-pro, sans-serif;
+	--font-family: garamond-premier-pro, sans-serif;
+	font-weight: 400;
+  }
+
+  p, ul, ol, aside {
+	font-size: 1.3125rem;
+	line-height: 1.875rem;
+  }
+  
+  a {
+	transition: 0.15s;
+	color: inherit;
+	text-decoration: none;
+	&:hover {
+	  opacity: 0.7;
+	}
+  }
+
+  h1, h2 {
+	@include display;
+	font-size: 3.5rem;
+	line-height: 1;
+	margin-top: 0;
+	margin-bottom: .75rem;
+	margin-left: -2px;
+	a {
+	 text-decoration: none;
+	 color: inherit;
+	}
+	&.long-title {
+	  font-size: 2.75rem;
+	}
+  }
+  
+h2 {
+	color: var(--primary);
+}
+
+  .subtitle {
+	@include grotesk;
+	margin-top: -.375rem;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.5rem;
+  }
+  
+p.lede {
+	@include display;
+	font-size: 1.875rem;
+	line-height: 2.25rem;
+	width: 100%;
+	max-width: none;
+  }
+  
+  h1.featured,
+  h2.featured {
+	color: var(--primary);
+  }
+  h1.photographs,
+  h2.photographs {
+	font-style: italic;
+  }
+  .post-title {
+	sup {
+	  font-size: 40%;
+	  line-height: 100%;
+	  vertical-align: top;
+	  position: relative;
+	  top: 0rem;
+	}
+  }
+  #tags {
+	color: var(--dark-gray);
+	a {
+	  &::after {
+		content: ', ';
+	  }
+	  &:last-of-type {
+		&::before {
+		  content: 'and ';
+		}
+		&::after {
+		  content: '.';
+		}
+	  }
+	}
+  }
+  
+  /* ======================================
+  ========================================= TOP BAR
+  ====================================== */
+  
+  header {
+	background-color: var(--white);
+	border-bottom: 1px solid var(--light-gray);
+	position: fixed;
+	width: 100%;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1000;
+  }
+  
+  header h1 {
+	font-size: 1.125rem;
+	line-height: 1rem;
+	margin: 1rem 0 0 0;
+	float: left;
+	a {
+	  padding: 1rem 1rem 1rem 0;
+	}
+  }
+  
+  header nav {
+	@include runway;
+	a:hover {
+	  &::before,
+	  &::after {
+		text-decoration: none;
+	  }
+	}
+	ul {
+	  @include grotesk;
+	  font-size: .875rem;
+	  font-weight: 700;
+	  line-height: 1rem;
+	  text-align: right;
+	  margin: 0;
+	  padding: 0;
+	  li {
+		display: inline-block;
+		list-style-type: none;
+		padding: 0;
+		margin: 0 0 0 1rem;
+		line-height: 1rem;
+		a {
+		  display: inline-block;
+		  text-decoration: none;
+		  padding: 1rem 0 1rem 1rem;
+		  color: var(--primary);
+		}
+	  }
+	}
+	label {
+	  color: #000;
+	  cursor: pointer;
+	  margin: 0;
+	  font-style: normal;
+	  text-align: right;
+	}
+  }
+  
+  main {
+	margin: 7.5rem auto 0;
+  }
+
+  /* ======================================
+  ========================================= ARTICLES
+  ====================================== */
+  
+  article {
+	p, h3, h4, h5, h6, aside, ul, ol, blockquote {
+	  max-width: 44rem;
+	}
+  }
+    
+  article {
+	@include runway;
+  }
+  
+
+  /* ======================================
+  ========================================= FOOTER
+  ====================================== */
+  
+  footer {
+	@include display;
+	padding-bottom: 1rem;
+	padding-top: 12rem;
+	font-size: .825rem;
+	color: var(--light-gray);
+	background: var(--ultra-black);
+	div {
+	  @include runway;
+	  @include grotesk;
+	}
+  }

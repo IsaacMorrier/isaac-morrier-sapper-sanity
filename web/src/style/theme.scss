@@ -1,0 +1,107 @@
+/* ======================================
+========================================= COLORS
+====================================== */
+
+:root {
+  --primary: #FC0100;
+  --secondary: #1797ff;
+  --tertiary: #59d488;
+  --quaternary: #fff7aa;
+  --quinary: #180f50;
+  --black: #26292B;
+  --ultra-black: #000000;
+  --white: #ffffff;
+  --background-color: #ffffff;
+  --text: #333333;
+  --light-gray: #bfbfbf;
+  --gray: #B4A6A6;
+  --dark-gray: #8E7D7D;
+}
+
+/* ======================================
+========================================= BREAKPOINTS
+====================================== */
+
+$xs: 28rem;
+$sm: 42rem;
+$md: 64rem;
+$lg: 82rem;
+$xl: 120rem;
+
+$breakpoints: (
+  'xs': $xs,
+  'sm': $sm,
+  'md': $md,
+  'lg': $lg,
+  'xl': $xl
+) !default;
+
+@mixin wider-than($breakpoint) {
+
+    @if map-has-key($breakpoints, $breakpoint) {
+      @media (min-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    }
+   
+    // If the key doesn't exist in the map
+    @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+  }
+
+$paddings: (
+  $xs: .75rem,
+  $sm: 1rem,
+  $md: 1.25rem,
+  $lg: 1.25rem
+);
+
+@mixin r($properties, $defaultValue, $definitions: ()) {
+    
+    @each $property in $properties {
+      #{$property}: #{$defaultValue};
+    }
+  
+    @each $breakpoint, $value in $definitions {
+      @media (min-width: #{$breakpoint}) {
+        @each $property in $properties {
+          #{$property}: #{$value};
+        }
+      }
+    }
+  }
+
+header, .post, .post-body, .page-body, footer {
+    @include r(
+        (padding-left, padding-right), '.5rem', $paddings
+    )
+}
+
+
+/* ======================================
+========================================= LAYOUT
+====================================== */
+
+@mixin runway {
+max-width: 72rem;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+/* ======================================
+========================================= TYPOGRAPHY
+====================================== */
+    
+@mixin display {
+font-family: neue-haas-grotesk-display, sans-serif;
+font-weight: 700;
+font-style: normal;
+}
+@mixin grotesk {
+font-family: neue-haas-grotesk-text, sans-serif;
+}
+  
+  

@@ -15,10 +15,6 @@
 	import serializers from "../components/serializers";
 
 	export let posts;
-  
-	function formatDate(date) {
-	  return new Date(date).toLocaleDateString()
-	}
   </script>
   
   <svelte:head>
@@ -26,12 +22,13 @@
   </svelte:head>
   
 	{#each posts as post}
-		<h2><a rel='prefetch' href='blog/{post.slug.current}'>{post.title}</a> ({formatDate(post.publishedAt)})</h2>
-
-	<h1>{post.title}</h1>
-
-	<div class="content">
-	<BlockContent blocks={post.body} {serializers} />
-	</div>
+	
+		<article>
+			<h2><a rel='prefetch' href='blog/{post.slug.current}'>{post.title}</a></h2>
+			
+			<div class="content">
+				<BlockContent blocks={post.body} {serializers} />
+			</div>
+		</article>
 
 	{/each}
