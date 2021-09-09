@@ -21,6 +21,7 @@
     "svelte-preprocess": "^4.7.4"
   },
   "dependencies": {
+    "@sanity/studio-hints": "^2.15.0",
     "sass": "^1.37.5"
   }
 }

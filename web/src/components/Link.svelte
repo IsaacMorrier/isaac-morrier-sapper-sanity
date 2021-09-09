@@ -1,7 +1,6 @@
 <script>
   export let href;
+  export let blank;
 </script>
 
-<a {href}>
-  <slot />
-</a>
+<a {href} target={blank ? '_blank' : undefined}><slot /></a> 

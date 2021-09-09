@@ -1,4 +1,5 @@
 import React from "react";
+import LinkRenderer from '../components/LinkRenderer';
 
 export default {
   name: 'bodyPortableText',
@@ -31,12 +32,21 @@ export default {
           {
             name: 'link',
             type: 'object',
-            title: 'URL',
+            title: 'External Link',
+            blockEditor: {
+              render: LinkRenderer
+            },
             fields: [
               {
                 title: 'URL',
                 name: 'href',
                 type: 'url'
+              },
+              {
+                title: 'Open in new tab',
+                name: 'blank',
+                description: 'Add target _blank.',
+                type: 'boolean'
               }
             ]
           }
