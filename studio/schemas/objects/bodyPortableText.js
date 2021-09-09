@@ -84,6 +84,9 @@ export default {
     },
     {
       type: 'code'
+    },
+    {
+      type: 'galleryGrid'
     }
   ]
 }

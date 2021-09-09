@@ -13,14 +13,22 @@ export async function get (req, res) {
           ...,
           _type == 'authorReference' => {
             _type,
-            author->
+            author->{name}
+          }
+        },
+        _type == 'galleryGrid' => {
+          gallery->{
+            imagesGallery[]{
+              alt,
+              'src' : asset->url
+            }
           }
         },
         markDefs[]{
           ...,
-          _type == "internalLink" => {
+          _type == 'internalLink' => {
             ...,
-            "slug": @.reference->slug
+            'slug': @.reference->slug
           }
         }
       }

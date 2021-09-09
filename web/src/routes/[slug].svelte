@@ -22,13 +22,25 @@
   <title>{post.title}</title>
 </svelte:head>
 
-<article class="post">
-  <h1>{post.title}</h1>
-  <!-- <div class="raw-data"><pre>{JSON.stringify(post, null, 2)}</pre></div> -->
-  <div class="subtitle">
-    <BlockContent blocks={post.subtitle} {serializers} />
+<article class="{post.layout ? post.layout : 'post'}">
+
+  <div class="front-matter">
+    <h1>{post.title}</h1>
+    {#if post.subtitle}
+    <div class="subtitle">
+      <BlockContent blocks={post.subtitle} {serializers} />
+    </div>
+    {/if}
+    {#if post.description}
+    <div class="description">
+      <BlockContent blocks={post.description} {serializers} />
+    </div>
+    {/if}
   </div>
+  
   <div class="content">
     <BlockContent blocks={post.body} {serializers} />
+    <!-- <div class="raw-data"><pre>{JSON.stringify(post, null, 2)}</pre></div> -->
   </div>
+
 </article>

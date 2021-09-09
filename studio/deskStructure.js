@@ -3,7 +3,7 @@ import { MdSettings } from "react-icons/md";
 import { MdPerson } from "react-icons/md";
 
 const hiddenDocTypes = listItem =>
-  !['category', 'author', 'post', 'siteSettings'].includes(listItem.getId())
+  !['category', 'author', 'post', 'gallery', 'siteSettings'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -19,14 +19,18 @@ export default () =>
             .documentId('siteSettings')
         ),
       S.listItem()
-        .title('Blog posts')
-        .schemaType('post')
-        .child(S.documentTypeList('post').title('Blog posts')),
-      S.listItem()
         .title('Authors')
         .icon(MdPerson)
         .schemaType('author')
         .child(S.documentTypeList('author').title('Authors')),
+      S.listItem()
+        .title('Blog Posts')
+        .schemaType('post')
+        .child(S.documentTypeList('post').title('Blog Posts')),
+      S.listItem()
+        .title('Galleries')
+        .schemaType('gallery')
+        .child(S.documentTypeList('gallery').title('Galleries')),
       S.listItem()
         .title('Categories')
         .schemaType('category')

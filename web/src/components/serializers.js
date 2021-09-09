@@ -5,6 +5,7 @@ import BlockContent from '@movingbrands/svelte-portable-text';
 import urlBuilder from '@sanity/image-url';
 import client from '../sanityClient';
 import Image from './Image.svelte';
+import GalleryGrid from './GalleryGrid.svelte';
 import Code from './Code.svelte';
 import Author from './Author.svelte';
 import Link from './Link.svelte';
@@ -35,6 +36,24 @@ export default {
           .auto('format')
           .url(),
         alt: node.alt,
+      },
+    }),
+    galleryImage: ({ node, children }) => ({
+      component: Image,
+      childNodes: children,
+      props: {
+        url: urlFor(node)
+          .width(800)
+          .auto('format')
+          .url(),
+        alt: node.alt,
+      },
+    }),
+    galleryGrid: ({ children, node: { gallery } }) => ({
+      component: GalleryGrid,
+      childNodes: children,
+      props: {
+        gallery,
       },
     }),
     code: ({ node: { code, language } }) => ({

@@ -71,14 +71,13 @@ h1 {
 	margin-left: -2px;
 	line-height: .95;
 	font-style: italic;
+	letter-spacing: -1px;
 
 	@include wider-than(sm) {
 		font-size: 4.5rem;
-		letter-spacing: -.5px;
 	}
 	@include wider-than(md) {
 		font-size: 6rem;
-		letter-spacing: -1px;
 	}
 	@include wider-than(lg) {
 		font-size: 8.625rem;
@@ -136,78 +135,134 @@ a {
 	}
 }
 
+
 article {
-	@include runway;
-	margin-top: 7rem;
-	text-align: right;
-	* {
-		text-align: left;
+    @include runway;
+    margin-top: 7rem;
+	img {
+		display: block;
 	}
-	.content,
-	.page-content {
-		display: inline-block;
+
+    &.post {
+      text-align: right;
+      * {
+        text-align: left;
+      }
+
+      .content,
+      .page-content {
+        display: inline-block;
+        @include wider-than(lg) {
+          margin-right: 6rem;
+        }
+        @include wider-than(xl) {
+          margin-right: 12rem;
+        }
+      }
+
+      p, h3, h4, h5, h6, aside, ul, ol, blockquote {
+        max-width: 36rem;
+        @include wider-than(md) {
+          max-width: 42rem;
+        }
+        @include wider-than(lg) {
+          max-width: 48rem;
+        }
+      }
+
+      ul, ol {
+        padding-left: 1rem;
+      }
+
+      ul li {
+        list-style: none;
+        &::before {
+          content: '\25C6';
+          font-size: .8em;
+          margin-right: .5rem;
+        }
+      }
+	  .content {
+		  p:last-child::after {
+			  content: '\25A0';
+			}
+			&::after {
+				content: '';
+				display: block;
+				width: 16rem;
+				height: 1px;
+				background: var(--hr-color);
+				margin: 1rem 0 .5rem;
+				padding: 0;
+				@include wider-than(lg) {
+					margin: 1.25rem 0 .5rem;
+					width: 20rem;
+				}
+			}
+		}
+		
+		.content p:first-child,
+		p.lede {
+			@include subhead;
+			font-weight: 500;
+			font-size: 1.5rem;
+			line-height: 1.4;
+			width: 100%;
+			@include wider-than(md) {
+				font-size: 1.75rem;
+			}
+			@include wider-than(lg) {
+				font-size: 2rem;
+			}
+		}
+	}
+		
+    &.gallery {
+		img {
+			width: 100%;
+			margin-bottom: 2rem;
+		}
+		h1 {
+			@include wider-than(sm) {
+				font-size: 2.5rem;
+				margin-bottom: .5rem;
+			}
+		}
+		.description p {
+			font-size: 1.25rem;
+			line-height: 1.5;
+			margin-top: 0;
+		}
+		@include wider-than(sm) {
+		  .front-matter {
+			  position: fixed;
+			  width: 35%;
+		  }
+		  .content {
+			  float: right;
+			  width: 60%;
+		}
+		@include wider-than(md) {
+			.front-matter {
+				width: 25%;
+			}
+			.content {
+				width: 70%;
+			}
+		}
 		@include wider-than(lg) {
-			margin-right: 6rem;
+			.front-matter {
+				width: 25%;
+			}
 		}
 		@include wider-than(xl) {
-			margin-right: 12rem;
+			.front-matter {
+				width: 16%;
+			}
 		}
-	}
-	p, h3, h4, h5, h6, aside, ul, ol, blockquote {
-		max-width: 36rem;
-		@include wider-than(md) {
-			max-width: 42rem;
-		}
-		@include wider-than(lg) {
-			max-width: 48rem;
-		}
-	}
-	ul, ol {
-		padding-left: 1rem;
-	}
-	ul li {
-		list-style: none;
-		&::before {
-			content: '\25C6';
-			font-size: .8em;
-			margin-right: .5rem;
-		}
-	}
-}
-
-.content {
-	p:last-child::after {
-		content: '\25A0';
-	}
-	&::after {
-		content: '';
-		display: block;
-		width: 16rem;
-		height: 1px;
-		background: var(--hr-color);
-		margin: 1rem 0 .5rem;
-		padding: 0;
-		@include wider-than(lg) {
-			margin: 1.25rem 0 .5rem;
-			width: 20rem;
-		}
-	}
-}
-
-.content p:first-child,
-p.lede {
-	@include subhead;
-	font-weight: 500;
-	font-size: 1.5rem;
-	line-height: 1.4;
-	width: 100%;
-	@include wider-than(md) {
-		font-size: 1.75rem;
-	}
-	@include wider-than(lg) {
-		font-size: 2rem;
-	}
-}
+	  }
+    }
+  }
 
 // #tags {
 // 	color: var(--text-color-lighter);

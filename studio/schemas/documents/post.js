@@ -19,6 +19,12 @@ export default {
         'Subtitle for the post.'
     },
     {
+      name: 'description',
+      type: 'bodyPortableText',
+      title: 'Description',
+      description: 'Rich front-matter, useful for Gallery layout posts.'
+    },
+    {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
@@ -29,10 +35,18 @@ export default {
       }
     },
     {
+      name: 'layout',
+      type: 'string',
+      title: 'Layout',
+      description: 'gallery or post',
+      initialValue: 'post'
+    },
+    {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
-      description: 'This can be used to schedule post for publishing'
+      description: 'This can be used to schedule post for publishing',
+      initialValue: (new Date()).toISOString()
     },
     {
       name: 'mainImage',
@@ -50,6 +64,15 @@ export default {
       name: 'authors',
       title: 'Authors',
       type: 'array',
+      initialValue: [
+        {
+          _type: 'authorReference',
+          author: {
+            _ref: "1b1c7451-c976-48fd-b416-73bf5a356f10",
+            _type: "reference"
+          }
+        }
+      ],
       of: [
         {
           type: 'authorReference'
