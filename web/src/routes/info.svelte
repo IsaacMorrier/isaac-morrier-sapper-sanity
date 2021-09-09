@@ -1,35 +1,30 @@
-<script>
-
-import SanityClientConstructor from "@sanity/client";
-
-</script>
-  <svelte:head>
-	<title>About Isaac</title>
-	<style lang="scss">
-		@import './style/theme.scss';
-		:root {
-			--background-color: #{ get-color(red)};
-			--text-color: #{ get-color(egg)};
-			--text-color-hover: #{ mix(get-color(egg), get-color(red), 80%)};
-			--text-color-lighter: #{ get-color(egg)};
-			--text-color-lightest: #{ get-color(egg)};
-			--hr-color:  #{$transparent-gray};
-			--accent-color: #{ get-color(egg)};
-			--accent-color-hover: #{ mix(get-color(egg), get-color(red), 80%)};
-			--secondary-color: #{ get-color(egg)};
-			--secondary-color-hover: #{ mix(get-color(egg), get-color(red), 80%)};
-			--tertiary-color: #{ get-color(egg)};
-			--tertiary-color-hover: #{ mix(get-color(egg), get-color(red), 80%)};
-			--quaternary-color: #{ get-color(egg)};
-			--quaternary-color-hover: #{ mix(get-color(egg), get-color(red), 80%)};
-			--quinary-color: #{ get-color(egg)};
-			--quinary-color-hover: #{ mix(get-color(egg), get-color(red), 80%)};
-		}
-		footer div {
-			opacity: 0.3;
-		}
-	</style>
-  </svelte:head>
+<svelte:head>
+<title>About Isaac</title>
+<style lang="scss">
+	@import './style/theme.scss';
+	:root {
+		--background-color: #{ get-color(red)};
+		--text-color: #{ get-color(egg)};
+		--text-color-hover: #{ mix(get-color(egg), get-color(red), 80%)};
+		--text-color-lighter: #{ get-color(egg)};
+		--text-color-lightest: #{ get-color(egg)};
+		--hr-color:  #{$transparent-gray};
+		--accent-color: #{ get-color(egg)};
+		--accent-color-hover: #{ mix(get-color(egg), get-color(red), 80%)};
+		--secondary-color: #{ get-color(egg)};
+		--secondary-color-hover: #{ mix(get-color(egg), get-color(red), 80%)};
+		--tertiary-color: #{ get-color(egg)};
+		--tertiary-color-hover: #{ mix(get-color(egg), get-color(red), 80%)};
+		--quaternary-color: #{ get-color(egg)};
+		--quaternary-color-hover: #{ mix(get-color(egg), get-color(red), 80%)};
+		--quinary-color: #{ get-color(egg)};
+		--quinary-color-hover: #{ mix(get-color(egg), get-color(red), 80%)};
+	}
+	footer div {
+		opacity: 0.3;
+	}
+</style>
+</svelte:head>
 
 <article>
 	<h1>Hi,<br> I’m Isaac Morrier</h1>
