@@ -1,7 +1,7 @@
 <script context="module">
   export async function preload({ params }) {
     try {
-      // As with the server route, we have acces to params.slug here
+      // As with the server route, we have access to params.slug here
       const res = await this.fetch(`api/archive/${params.slug}`);
       const { post } = await res.json();
       return { post };
@@ -24,6 +24,8 @@
 
 <article>
   <h1><a rel='prefetch' href='/{post.slug.current}'>{post.title}</a></h1>
+
+  <!-- <div class="raw-data"><pre>{JSON.stringify(post, null, 2)}</pre></div> -->
   
   <div class="content">
     <BlockContent blocks={post.body} {serializers} />

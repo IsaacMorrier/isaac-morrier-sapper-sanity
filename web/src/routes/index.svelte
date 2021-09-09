@@ -21,6 +21,7 @@
 	  <title>@isaacmorrier</title>
   </svelte:head>
   
+  <!-- <div class="raw-data"><pre>{JSON.stringify(posts, null, 2)}</pre></div> -->
 	{#each posts as post}
 
 		<article>

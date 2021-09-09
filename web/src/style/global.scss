@@ -31,7 +31,15 @@ body {
   a {
 	transition: 0.15s;
 	color: inherit;
-	text-decoration: underline;
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+	text-decoration-color: var(--gray);
+	-moz-text-decoration-line: underline;
+	-moz-text-decoration-style: dotted;
+	-moz-text-decoration-color: var(--gray);
+	-webkit-text-decoration-line: underline;
+	-webkit-text-decoration-style: dotted;
+	-webkit-text-decoration-color: var(--gray);
 	&:hover {
 	  opacity: 0.7;
 	}

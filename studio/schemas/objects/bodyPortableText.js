@@ -1,5 +1,7 @@
 import React from "react";
 import LinkRenderer from '../components/LinkRenderer';
+import { GoLinkExternal } from 'react-icons/go';
+import { GoLink } from 'react-icons/go';
 
 export default {
   name: 'bodyPortableText',
@@ -34,7 +36,8 @@ export default {
             type: 'object',
             title: 'External Link',
             blockEditor: {
-              render: LinkRenderer
+              render: LinkRenderer,
+              icon: GoLinkExternal
             },
             fields: [
               {
@@ -47,6 +50,24 @@ export default {
                 name: 'blank',
                 description: 'Add target _blank.',
                 type: 'boolean'
+              }
+            ]
+          },
+          {
+            name: 'internalLink',
+            type: 'object',
+            title: 'Internal Link',
+            blockEditor: {
+              icon: GoLink
+            },
+            fields: [
+              {
+                name: 'reference',
+                type: 'reference',
+                title: 'Reference',
+                to: [
+                  { type: 'post' }
+                ]
               }
             ]
           }

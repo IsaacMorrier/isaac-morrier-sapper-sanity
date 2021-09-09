@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { CgExternal } from 'react-icons/cg'
+import { GoLinkExternal } from 'react-icons/go'
 
 const LinkRenderer = props => (
   <span>
-    {props.children}<CgExternal />
+    {props.children}<GoLinkExternal />
   </span>
 )
 

@@ -15,6 +15,13 @@ export async function get (req, res) {
             _type,
             author->
           }
+        },
+        markDefs[]{
+          ...,
+          _type == "internalLink" => {
+            ...,
+            "slug": @.reference->slug
+          }
         }
       }
     }`;
