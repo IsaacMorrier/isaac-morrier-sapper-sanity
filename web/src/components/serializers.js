@@ -2,8 +2,6 @@
 // https://github.com/movingbrands/svelte-portable-text
 import BlockContent from '@movingbrands/svelte-portable-text';
 // https://www.npmjs.com/package/@sanity/image-url
-import urlBuilder from '@sanity/image-url';
-import client from '../sanityClient';
 import Image from './Image.svelte';
 import GalleryGrid from './GalleryGrid.svelte';
 import Code from './Code.svelte';
@@ -11,7 +9,7 @@ import Author from './Author.svelte';
 import Link from './Link.svelte';
 import InternalLink from './InternalLink.svelte';
 
-const urlFor = source => urlBuilder(client).image(source);
+import urlFor from '../sanityImageUrlBuilder';
 
 export default {
   marks: {
@@ -31,24 +29,20 @@ export default {
       component: Image,
       childNodes: children,
       props: {
-        url: urlFor(node)
-          .width(800)
-          .auto('format')
-          .url(),
-        alt: node.alt,
+        node: node
       },
     }),
-    galleryImage: ({ node, children }) => ({
-      component: Image,
-      childNodes: children,
-      props: {
-        url: urlFor(node)
-          .width(800)
-          .auto('format')
-          .url(),
-        alt: node.alt,
-      },
-    }),
+    // galleryImage: ({ node, children }) => ({
+    //   component: Image,
+    //   childNodes: children,
+    //   props: {
+    //     url: urlFor(node)
+    //       .width(800)
+    //       .auto('format')
+    //       .url(),
+    //     alt: node.alt,
+    //   },
+    // }),
     galleryGrid: ({ children, node: { gallery } }) => ({
       component: GalleryGrid,
       childNodes: children,

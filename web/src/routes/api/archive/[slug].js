@@ -16,11 +16,14 @@ export async function get (req, res) {
             author->{name}
           }
         },
+        _type == 'mainImage' => {
+          asset->
+        },
         _type == 'galleryGrid' => {
           gallery->{
             imagesGallery[]{
-              alt,
-              'src' : asset->url
+              ...,
+              asset->
             }
           }
         },

@@ -1,4 +1,5 @@
 <script>
+  // import Image from "./Image.svelte";
   export let gallery;
 
   let images = gallery.imagesGallery;
@@ -13,6 +14,8 @@
     flex-wrap: wrap;
 
     .gallery-grid-box {
+      display: flex;
+      justify-content: center;
 
       width: 33%;
       max-width: 16rem;
@@ -20,13 +23,6 @@
 
       padding: 1rem;
 
-      img {
-        height: auto;
-        width: auto;
-        max-height: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-      }
     }
     @include wider-than(md){
       .gallery-grid-box {
@@ -34,12 +30,19 @@
       }
     }
   }
+  .thumbnail {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 </style>
 
 <div class="gallery-grid">
   {#each images as image}
-  <div class="gallery-grid-box" bind:clientWidth={image.w} style="height: {image.w}px">
-    <img src={image.src} alt={image.alt} />
+  <div class="gallery-grid-box" bind:clientWidth={image.w} style="height: {image.w}px;">
+    <div class="thumbnail" style="background-image:url({image.asset.url + '?w=360'})"></div>
   </div>
   {/each}
 </div>

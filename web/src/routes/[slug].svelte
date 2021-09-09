@@ -39,8 +39,8 @@
   </div>
   
   <div class="content">
-    <BlockContent blocks={post.body} {serializers} />
     <!-- <div class="raw-data"><pre>{JSON.stringify(post, null, 2)}</pre></div> -->
+    <BlockContent blocks={post.body} {serializers} />
   </div>
 
 </article>
