@@ -1,6 +1,6 @@
 # sapper-template-sanity-mod
 
-This is a blog that use [content from sanity.io/create](https://www.sanity.io/create?template=sanity-io%2Fsanity-template-gatsby-blog) with Sapper, a app framework for Svelte.js.
+This is a blog that uses [content from sanity.io/create](https://www.sanity.io/create?template=sanity-io%2Fsanity-template-gatsby-blog) with Sapper, an app framework for Svelte.js.
 
 ## Original Readme
 

@@ -11,7 +11,7 @@
   const widthsPreset = [640, 768, 1024, 1366, 1600];
 
   let srcset = widthsPreset
-    .map((w) => urlFor(node).url() + "/" + fileName + '?w=' + w + ' ' + w + 'w')
+    .map((w) => urlFor(node).url() + "/" + fileName + '?w=' + w + '&fit=max ' + w + 'w')
 		.join(',')
 
 </script>
@@ -25,4 +25,4 @@
   }
 </style>
 
-<img {src} {srcset} {alt} />
+<img {src} {srcset} {alt} style='max-width: {node.asset.metadata.dimensions.width}px'/>
