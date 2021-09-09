@@ -24,7 +24,7 @@ export default {
         {title: 'H4', value: 'h4'},
         {
           title: 'Lede',
-          value: 'p.lede',
+          value: 'lede',
           blockEditor: {
             render: LedeStyle
           }
