@@ -2,3 +2,8 @@
   from = "https://portfolio.isaacmorrier.com/*"
   to = "https://isaacmorrier.com/:splat"
   status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404
