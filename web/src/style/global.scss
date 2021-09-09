@@ -2,26 +2,113 @@
 @import "./theme.scss";
 @import "./base.scss";
 
-  /* ======================================
-  ========================================= TYPOGRAPHY
-  ====================================== */
+
+:root {
+	--background-color: #{$white};
+	--text-color: #{$black};
+	--text-color-hover: #{$gray};
+	--text-color-lighter: #{$gray-darker};
+	--text-color-lightest: #{$gray};
+	--hr-color: #{$transparent-gray};
+	--accent-color: #{get-color(red)};
+	--accent-color-hover: #{get-color(red, lighter)};
+	--secondary-color: #{get-color(blue)};
+	--secondary-color-hover: #{get-color(blue, lighter)};
+	--tertiary-color: #{get-color(green)};
+	--tertiary-color-hover: #{get-color(green, lighter)};
+	--quaternary-color: #{get-color(egg)};
+	--quaternary-color-hover: #{get-color(egg, lighter)};
+	--quinary-color: #{get-color(navy)};
+	--quinary-color-hover: #{get-color(navy, lighter)};
+  }
   
-  body { 
+  @supports (color: color(display-p3 1 1 1)) {
+	:root {
+	  --accent-color: color(display-p3 1 0 0);
+	  --accent-color-hover: color(display-p3 1 .1 .1);
+	}
+  }
+  
+  header, main, footer {
+	@include r(
+		(padding-left, padding-right), '.5rem', $paddings
+	)
+  }  
+
+/* ======================================
+========================================= TYPOGRAPHY
+====================================== */
+
+body { 
 	font-family: garamond-premier-pro, sans-serif;
 	--font-family: garamond-premier-pro, sans-serif;
 	font-weight: 500;
 	background: var(--background-color);
 	color: var(--text-color);
 	-webkit-font-smoothing: antialiased;
-  }
-  
-  main {
-	  background-color: var(--background-color);
-	  padding-top: 4rem;
-	  transition: background-color 0.25s ease-out;
-  }
+}
 
-  p, ul, ol, aside {
+main {
+	background-color: var(--background-color);
+	padding-top: 4rem;
+	transition: background-color 0.25s ease-out;
+}
+
+
+h1, h2, h3 {
+	@include display;
+	line-height: 1;
+	margin-top: 0;
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+}
+
+h1 {
+	font-size: 3.5rem;
+	margin-bottom: .75rem;
+	margin-left: -2px;
+	line-height: .95;
+	font-style: italic;
+
+	@include wider-than(sm) {
+		font-size: 4.5rem;
+		letter-spacing: -.5px;
+	}
+	@include wider-than(md) {
+		font-size: 6rem;
+		letter-spacing: -1px;
+	}
+	@include wider-than(lg) {
+		font-size: 8.625rem;
+		max-width: 72rem;
+	}
+}
+
+h2 {
+	font-size: 2.25rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.subtitle p {
+	@include caption;
+	// color: var(--accent-color);
+	font-style: italic;
+	font-size: 1.25rem;
+	font-weight: 500;
+	line-height: 1.4;
+	margin-top: -.5rem;
+	@include wider-than(md) {
+		font-size: 1.25rem;
+	}
+	@include wider-than(lg) {
+		font-size: 2rem;
+	}
+}
+
+p, ul, ol, aside {
 	font-size: 1.25rem;
 	line-height: 1.6667;
 	@include wider-than(md) {
@@ -30,9 +117,9 @@
 	@include wider-than(lg) {
 		font-size: 1.5rem;
 	}
-  }
-  
-  a {
+}
+
+a {
 	transition: color 0.15s ease-out;
 	color: inherit;
 	text-decoration-line: underline;
@@ -45,11 +132,11 @@
 	-webkit-text-decoration-style: dotted;
 	-webkit-text-decoration-color: var(--text-color-lightest);
 	&:hover {
-	  color: var(--text-color-hover);
+		color: var(--text-color-hover);
 	}
-  }
+}
 
-  article {
+article {
 	@include runway;
 	margin-top: 7rem;
 	text-align: right;
@@ -59,7 +146,6 @@
 	.content,
 	.page-content {
 		display: inline-block;
-		text-align: left;
 		@include wider-than(lg) {
 			margin-right: 6rem;
 		}
@@ -76,66 +162,6 @@
 			max-width: 48rem;
 		}
 	}
-
-	img {
-		margin-bottom: 4rem;
-	}
-	  
-	h1, h2, h3 {
-		@include subhead;
-		line-height: 1;
-		margin-top: 0;
-		a {
-		 text-decoration: none;
-		 color: inherit;
-		}
-	  }
-	
-	  h1 {
-		color: var(--accent-color);
-		font-size: 3.5rem;
-		margin-bottom: .75rem;
-		margin-left: -2px;
-		line-height: .95;
-		a:hover {
-			color: var(--accent-color);
-		} 
-		@include wider-than(sm) {
-			@include display;
-			font-size: 4.5rem;
-			letter-spacing: -.5px;
-		}
-		@include wider-than(md) {
-			font-size: 6rem;
-			letter-spacing: -1px;
-		}
-		@include wider-than(lg) {
-			font-size: 8.625rem;
-			max-width: 72rem;
-		}
-	  }
-	  .subtitle p {
-		@include caption;
-		color: var(--accent-color);
-		font-style: italic;
-		font-size: 1.25rem;
-		font-weight: 500;
-		line-height: 1.4;
-		margin-top: -.5rem;
-		@include wider-than(md) {
-			font-size: 1.25rem;
-		}
-		@include wider-than(lg) {
-			font-size: 2rem;
-		}
-	  }
-	
-	  h2 {
-		  font-size: 2.25rem;
-		  margin-top: 1rem;
-		  margin-bottom: 1rem;
-	  }
-	
 	ul, ol {
 		padding-left: 1rem;
 	}
@@ -147,9 +173,9 @@
 			margin-right: .5rem;
 		}
 	}
-  }
+}
 
-  .content {
+.content {
 	p:last-child::after {
 		content: '\25A0';
 	}
@@ -166,8 +192,8 @@
 			width: 20rem;
 		}
 	}
-  }
-  
+}
+
 .content p:first-child,
 p.lede {
 	@include subhead;
@@ -181,139 +207,35 @@ p.lede {
 	@include wider-than(lg) {
 		font-size: 2rem;
 	}
-  }
-  .post-title {
-	sup {
-	  font-size: 40%;
-	  line-height: 100%;
-	  vertical-align: top;
-	  position: relative;
-	  top: 0rem;
-	}
-  }
-  #tags {
-	color: var(--text-color-lighter);
-	a {
-	  &::after {
-		content: ', ';
-	  }
-	  &:last-of-type {
-		&::before {
-		  content: 'and ';
-		}
-		&::after {
-		  content: '.';
-		}
-	  }
-	}
-  }
+}
 
-  
-  /* ======================================
-  ========================================= TOP BAR
-  ====================================== */
-  
-  header {
-	background-color: var(--background-color);
-	transition: background-color 0.25s ease-out;
-	border-bottom: 1px solid var(--hr-color);
-	position: fixed;
-	width: 100%;
-	top: 0;
-	right: 0;
-	left: 0;
-	z-index: 1000;
-	font-size: .875rem;
-	@include wider-than(md) {
-		font-size: 1rem;
-	}
-	@include wider-than(lg) {
-		padding-top: .25rem;
-		padding-bottom: .25rem;
-	}
-	h1 {
-		@include caption;
-		color: var(--text);
-		font-weight: 500;
-		line-height: 1rem;
-		font-size: inherit;
-		margin: 0;
-		float: left;
-		a {
-			display: inline-block;
-			text-decoration: none;
-			padding: 1.25rem .5rem .75rem;
-			&:hover {
-				color: var(--text-color-hover);
-			}
-		}
-	}
-	nav {
-		@include runway;
-		ul {
-			font-size: inherit;
-			font-weight: 500;
-			line-height: 1rem;
-			text-align: right;
-			margin: 0;
-			padding: 0;
-			li {
-				display: inline-block;
-				list-style-type: none;
-				padding: 0;
-				line-height: 1rem;
-				a {
-					display: inline-block;
-					@include caption;
-					font-weight: 500;
-					text-decoration: none;
-					padding: 1.25rem .5rem .75rem;
-					&:hover {
-						text-decoration: none;
-						color: var(--text-color-hover);
-						&::before,
-						&::after {
-							text-decoration: none;
-							color: var(--text-color-hover);
-						}
-					}
-					&.is-active {
-						padding-right: .25rem; // Corrects for increase in width due to ::after
-						&::after {
-							content: '';
-							width: .25rem;
-							height: .25rem;
-							border-radius: 10px;
-							background-color: var(--text-color-hover);
-							display: inline-block;
-							position: relative;
-							left: -50%;
-							top: 10px;
-						}
-					}
-				}
-			}
-		}
-		label {
-			color: #000;
-			cursor: pointer;
-			margin: 0;
-			font-style: normal;
-			text-align: right;
-		}
-	}
-  }
+// #tags {
+// 	color: var(--text-color-lighter);
+// 	a {
+// 		&::after {
+// 		content: ', ';
+// 		}
+// 		&:last-of-type {
+// 		&::before {
+// 			content: 'and ';
+// 		}
+// 		&::after {
+// 			content: '.';
+// 		}
+// 		}
+// 	}
+// }
 
-  /* ======================================
-  ========================================= FOOTER
-  ====================================== */
-  
-  footer {
-	padding-bottom: 1rem;
-	padding-top: 12rem;
-	font-size: .825rem;
-	div {
-	  @include runway;
-	  @include grotesk;
-	}
-  }
+/* ======================================
+========================================= FOOTER
+====================================== */
+
+footer {
+padding-bottom: 1rem;
+padding-top: 12rem;
+font-size: .825rem;
+div {
+	@include runway;
+	@include grotesk;
+}
+}

@@ -1,5 +1,5 @@
 <footer>
-    <div>
+    <!-- <div>
         &copy; 2021 <a href='/info/'>Isaac Morrier</a>. All Rights Reserved.
-    </div>
+    </div> -->
 </footer>

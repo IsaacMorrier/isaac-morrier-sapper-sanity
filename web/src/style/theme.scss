@@ -18,6 +18,7 @@ $white: #ffffff;
 $gray-lighter: #BFBFBF;
 $gray: #B7B7B7;
 $gray-darker: #727272;
+$gray-darkest: #3d3d3d;
 $transparent-gray: #26292B1A;
 
 //  Create shades of each color and return values as map
@@ -59,31 +60,6 @@ $color-map: color-maps($colors);
   @return map-get($color-map, #{$color}-#{$shade});
 }
 
-:root {
-  --background-color: #{$white};
-  --text-color: #{$black};
-  --text-color-hover: #{$gray};
-  --text-color-lighter: #{$gray-darker};
-  --text-color-lightest: #{$gray};
-  --hr-color: #{$transparent-gray};
-  --accent-color: #{get-color(red)};
-  --accent-color-hover: #{get-color(red, lighter)};
-  --secondary-color: #{get-color(blue)};
-  --secondary-color-hover: #{get-color(blue, lighter)};
-  --tertiary-color: #{get-color(green)};
-  --tertiary-color-hover: #{get-color(green, lighter)};
-  --quaternary-color: #{get-color(egg)};
-  --quaternary-color-hover: #{get-color(egg, lighter)};
-  --quinary-color: #{get-color(navy)};
-  --quinary-color-hover: #{get-color(navy, lighter)};
-}
-
-@supports (color: color(display-p3 1 1 1)) {
-  :root {
-    --accent-color: color(display-p3 1 0 0);
-    --accent-color-hover: color(display-p3 1 .1 .1);
-  }
-}
 
 /* ======================================
 ========================================= BREAKPOINTS
@@ -139,13 +115,6 @@ $paddings: (
       }
     }
   }
-
-header, main, footer {
-    @include r(
-        (padding-left, padding-right), '.5rem', $paddings
-    )
-}
-
 
 /* ======================================
 ========================================= LAYOUT

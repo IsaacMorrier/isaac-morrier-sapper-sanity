@@ -23,7 +23,7 @@
 </svelte:head>
 
 <article class="post">
-  <h1><a href='/{post.slug.current}'>{post.title}</a></h1>
+  <h1>{post.title}</h1>
   <!-- <div class="raw-data"><pre>{JSON.stringify(post, null, 2)}</pre></div> -->
   <div class="subtitle">
     <BlockContent blocks={post.subtitle} {serializers} />

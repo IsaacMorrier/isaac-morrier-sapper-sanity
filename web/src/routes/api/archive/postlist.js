@@ -1,25 +1,11 @@
 import client from '../../../sanityClient'
 
-/**
- * This route is called 'all' instead of index to prevent route conflicts.
- * @see https://sapper.svelte.dev/docs#Route_conflicts
- */
 export async function get (req, res) {
   try {
     const filter = '*[_type == "post" && defined(slug.current) && publishedAt < now()]|order(publishedAt desc)';
     const projection = `
       []{
         ...,
-        body[]{
-          ...,
-          markDefs[]{
-            ...,
-            _type == "internalLink" => {
-              ...,
-              "slug": @.reference->slug
-            }
-          }
-        },
         "categories": categories[]->title
       }`;
     const query = filter + projection;
