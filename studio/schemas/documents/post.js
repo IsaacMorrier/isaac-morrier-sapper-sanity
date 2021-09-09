@@ -12,6 +12,13 @@ export default {
       description: 'Titles should be catchy, descriptive, and not too long'
     },
     {
+      name: 'subtitle',
+      type: 'excerptPortableText',
+      title: 'Subtitle',
+      description:
+        'Subtitle for the post.'
+    },
+    {
       name: 'slug',
       type: 'slug',
       title: 'Slug',

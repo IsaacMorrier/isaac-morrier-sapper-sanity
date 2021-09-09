@@ -26,6 +26,9 @@
 
 		<article class="post">
 			<h1><a rel='prefetch' href='/{post.slug.current}'>{post.title}</a></h1>
+			<div class="subtitle">
+				<BlockContent blocks={post.subtitle} {serializers} />
+			</div>
 			
 			<div class="content">
 				<BlockContent blocks={post.body} {serializers} />

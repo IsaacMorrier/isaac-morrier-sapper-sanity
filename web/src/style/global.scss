@@ -90,6 +90,21 @@
 			font-size: 8.625rem;
 		}
 	  }
+	  .subtitle p {
+		@include caption;
+		color: var(--accent-color);
+		font-style: italic;
+		font-size: 1.25rem;
+		font-weight: 500;
+		line-height: 1.4;
+		margin-top: -.5rem;
+		@include wider-than(md) {
+			font-size: 1.25rem;
+		}
+		@include wider-than(lg) {
+			font-size: 2rem;
+		}
+	  }
 	
 	  h2 {
 		  font-size: 2.25rem;
@@ -110,7 +125,7 @@
 	}
   }
 
-  .post {
+  .content {
 	p:last-child::after {
 		content: '\25A0';
 	}
@@ -127,14 +142,6 @@
 			width: 20rem;
 		}
 	}
-  }
-
-  .subtitle {
-	@include grotesk;
-	margin-top: -.375rem;
-	font-size: 1rem;
-	font-weight: 700;
-	line-height: 1.5rem;
   }
   
 .content p:first-child,
