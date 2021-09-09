@@ -5,11 +5,6 @@
   status = 301
 
 [[redirects]]
-  from = "/*"
-  to = "https://isaacmorrier.com/404"
-  status = 404
-
-[[redirects]]
   from = "https://portfolio.isaacmorrier.com/*"
   to = "https://isaacmorrier.com/:splat"
   force = true
