@@ -20,8 +20,8 @@
 		--quinary-color: #{ get-color(blue)};
 		--quinary-color-hover: #{ mix(get-color(blue), get-color(navy), 80%)};
 	}
-	footer div {
-		opacity: 0.3;
+	h1 {
+		color: red;
 	}
 </style>
 </svelte:head>

@@ -1,9 +1,11 @@
 [[redirects]]
-  from = "https://portfolio.isaacmorrier.com/*"
-  to = "https://isaacmorrier.com/:splat"
-  status = 301
+  from = "/*"
+  to = "https://isaacmorrier.com/404"
+  status = 404
 
 [[redirects]]
-  from = "/*"
-  to = "/404"
-  status = 404
+  from = "https://portfolio.isaacmorrier.com/*"
+  to = "https://isaacmorrier.com/:splat"
+  force = true
+  status = 301
+
