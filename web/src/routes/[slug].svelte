@@ -23,10 +23,11 @@
 </svelte:head>
 
 <article class="post">
-  <h1><a rel='prefetch' href='/{post.slug.current}'>{post.title}</a></h1>
-
+  <h1><a href='/{post.slug.current}'>{post.title}</a></h1>
   <!-- <div class="raw-data"><pre>{JSON.stringify(post, null, 2)}</pre></div> -->
-  
+  <div class="subtitle">
+    <BlockContent blocks={post.subtitle} {serializers} />
+  </div>
   <div class="content">
     <BlockContent blocks={post.body} {serializers} />
   </div>

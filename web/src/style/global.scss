@@ -225,7 +225,7 @@ p.lede {
 			text-decoration: none;
 			padding: 1.25rem .5rem .75rem;
 			&:hover {
-				color: var(--accent-color);
+				color: var(--text-color-hover);
 			}
 		}
 	}
@@ -256,6 +256,20 @@ p.lede {
 						&::after {
 							text-decoration: none;
 							color: var(--text-color-hover);
+						}
+					}
+					&.is-active {
+						padding-right: .25rem; // Corrects for increase in width due to ::after
+						&::after {
+							content: '';
+							width: .25rem;
+							height: .25rem;
+							border-radius: 10px;
+							background-color: var(--text-color-hover);
+							display: inline-block;
+							position: relative;
+							left: -50%;
+							top: 10px;
 						}
 					}
 				}

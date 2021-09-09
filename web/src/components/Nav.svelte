@@ -9,7 +9,7 @@
 <header>
 	<nav>
 		<div id="nav">
-			<h1><a class='{segment === undefined ? "is-active" : ""}' href='.'>Isaac Morrier</a></h1>
+			<h1><a href='.'>{segment ? '❮' : ""} Isaac Morrier</a></h1>
 			<ul>
 				<li><a class='{segment === "info" ? "is-active" : ""}' href='info'>Info</a></li>
 				<li><a href='https://instagram.com/isaacmorrier'>Instagram</a></li>
