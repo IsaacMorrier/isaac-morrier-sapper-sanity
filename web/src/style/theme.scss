@@ -73,7 +73,7 @@ $paddings: (
     }
   }
 
-header, .post, .post-body, .page-body, footer {
+header, main, footer {
     @include r(
         (padding-left, padding-right), '.5rem', $paddings
     )
