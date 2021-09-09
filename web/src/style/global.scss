@@ -52,6 +52,20 @@
   article {
 	@include runway;
 	margin-top: 7rem;
+	text-align: right;
+	* {
+		text-align: left;
+	}
+	.content {
+		display: inline-block;
+		text-align: left;
+		@include wider-than(lg) {
+			margin-right: 6rem;
+		}
+		@include wider-than(xl) {
+			margin-right: 12rem;
+		}
+	}
 	p, h3, h4, h5, h6, aside, ul, ol, blockquote {
 		max-width: 36rem;
 		@include wider-than(md) {
@@ -83,8 +97,8 @@
 		margin-left: -2px;
 		line-height: .95;
 		a:hover {
-			color: var(--accent-color-hover)
-		}
+			color: var(--accent-color);
+		} 
 		@include wider-than(sm) {
 			@include display;
 			font-size: 4.5rem;
@@ -96,6 +110,7 @@
 		}
 		@include wider-than(lg) {
 			font-size: 8.625rem;
+			max-width: 72rem;
 		}
 	  }
 	  .subtitle p {
@@ -159,7 +174,6 @@ p.lede {
 	font-size: 1.5rem;
 	line-height: 1.4;
 	width: 100%;
-	max-width: none;
 	@include wider-than(md) {
 		font-size: 1.75rem;
 	}
