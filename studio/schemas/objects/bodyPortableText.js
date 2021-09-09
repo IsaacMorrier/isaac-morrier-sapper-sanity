@@ -1,3 +1,9 @@
+import React from "react";
+
+const LedeStyle = props => (
+  <p style={{fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '1.5em'}}>{props.children}</p>
+)
+
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -16,6 +22,13 @@ export default {
         {title: 'H2', value: 'h2'},
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
+        {
+          title: 'Lede',
+          value: 'p.lede',
+          blockEditor: {
+            render: LedeStyle
+          }
+        },
         {title: 'Quote', value: 'blockquote'}
       ],
       lists: [{title: 'Bullet', value: 'bullet'}, {title: 'Numbered', value: 'number'}],
