@@ -1,7 +1,7 @@
 <script context="module">
 	export async function preload({ params }) {
 	  try {
-		const res = await this.fetch('api/blog/all');
+		const res = await this.fetch('api/archive/all');
 		const { posts } = await res.json()
 		return { posts };
 	  } catch (err) {
@@ -22,9 +22,9 @@
   </svelte:head>
   
 	{#each posts as post}
-	
+
 		<article>
-			<h2><a rel='prefetch' href='blog/{post.slug.current}'>{post.title}</a></h2>
+			<h2><a rel='prefetch' href='/{post.slug.current}'>{post.title}</a></h2>
 			
 			<div class="content">
 				<BlockContent blocks={post.body} {serializers} />
