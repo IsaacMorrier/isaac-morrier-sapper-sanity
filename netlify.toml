@@ -1,4 +1,10 @@
 [[redirects]]
+  from = "https://isaacmorrier.com/test"
+  to = "https://isaacmorrier.com/info"
+  force = true
+  status = 301
+
+[[redirects]]
   from = "/*"
   to = "https://isaacmorrier.com/404"
   status = 404
