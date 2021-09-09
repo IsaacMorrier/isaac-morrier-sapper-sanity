@@ -77,13 +77,17 @@
 		font-size: 3.5rem;
 		margin-bottom: .75rem;
 		margin-left: -2px;
+		line-height: .95;
 		a:hover {
 			color: var(--accent-color-hover)
 		}
-		@include wider-than(md) {
+		@include wider-than(sm) {
 			@include display;
-			font-size: 5rem;
-			line-height: .95;
+			font-size: 4.5rem;
+			letter-spacing: -.5px;
+		}
+		@include wider-than(md) {
+			font-size: 6rem;
 			letter-spacing: -1px;
 		}
 		@include wider-than(lg) {
