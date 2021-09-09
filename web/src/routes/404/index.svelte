@@ -20,9 +20,6 @@
 		--quinary-color: #{ get-color(blue)};
 		--quinary-color-hover: #{ mix(get-color(blue), get-color(navy), 80%)};
 	}
-	h1 {
-		color: red;
-	}
 </style>
 </svelte:head>
 
@@ -33,7 +30,7 @@
 
 		<p class="lede">It looks like the page you’re looking for isn’t here.</p>
 		
-		<p><a href="/">Return Home</a>&nbsp;&nbsp;&nbsp;<a href="mailto:isaac@isaacmorrier.com">Email Isaac</a></p>
+		<p><a href="https://isaacmorrier.com">Return Home</a>&nbsp;&nbsp;&nbsp;<a href="mailto:isaac@isaacmorrier.com">Email Isaac</a></p>
 		
 	</div>
 </article>

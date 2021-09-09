@@ -112,7 +112,7 @@
 <header>
 	<nav>
 		<div id="nav">
-			<h1><a href='.'>{segment ? '❮' : ""} Isaac Morrier</a></h1>
+			<h1><a href='https://isaacmorrier.com'>{segment ? '❮' : ""} Isaac Morrier</a></h1>
 			<ul>
 				<li><a class='{segment === "info" ? "is-active" : ""}' href='info'>Info</a></li>
 				<li><a href='https://instagram.com/isaacmorrier' target="_blank">Instagram</a></li>
