@@ -8,9 +8,12 @@
 		this.error(500, err);
 	  }
 	};
-  </script>
+  </script>  
   
   <script>
+	import BlockContent from "@movingbrands/svelte-portable-text";
+	import serializers from "../components/serializers";
+
 	export let posts;
   
 	function formatDate(date) {
@@ -18,24 +21,17 @@
 	}
   </script>
   
-  <style>
-	  ul {
-		  margin: 0 0 1em 0;
-		  line-height: 1.5;
-	  }
-	</style>
-  
   <svelte:head>
 	  <title>@isaacmorrier</title>
   </svelte:head>
   
-  <ul>
-	  {#each posts as post}
-		  <!-- we're using the non-standard `rel=prefetch` attribute to
-				  tell Sapper to load the data for the page as soon as
-				  the user hovers over the link or taps it, instead of
-				  waiting for the 'click' event -->
-		  <li><a rel='prefetch' href='blog/{post.slug.current}'>{post.title}</a> ({formatDate(post.publishedAt)})</li>
-	  {/each}
-  </ul>
-  
+	{#each posts as post}
+		<h2><a rel='prefetch' href='blog/{post.slug.current}'>{post.title}</a> ({formatDate(post.publishedAt)})</h2>
+
+	<h1>{post.title}</h1>
+
+	<div class="content">
+	<BlockContent blocks={post.body} {serializers} />
+	</div>
+
+	{/each}
