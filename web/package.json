@@ -5,8 +5,8 @@
   "version": "0.0.21",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper export --entry '/ /404'",
-    "export": "sapper export --entry '/ /404'",
+    "build": "sapper export --entry '/ 404'",
+    "export": "sapper export --entry '/ 404'",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
