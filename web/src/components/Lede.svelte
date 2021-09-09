@@ -1,3 +1,0 @@
-<p class="lede">
-    <slot />
-</p>
