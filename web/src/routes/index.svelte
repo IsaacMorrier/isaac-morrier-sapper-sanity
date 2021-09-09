@@ -24,8 +24,8 @@
   <!-- <div class="raw-data"><pre>{JSON.stringify(posts, null, 2)}</pre></div> -->
 	{#each posts as post}
 
-		<article>
-			<h2><a rel='prefetch' href='/{post.slug.current}'>{post.title}</a></h2>
+		<article class="post">
+			<h1><a rel='prefetch' href='/{post.slug.current}'>{post.title}</a></h1>
 			
 			<div class="content">
 				<BlockContent blocks={post.body} {serializers} />

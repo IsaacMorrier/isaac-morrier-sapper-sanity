@@ -14,4 +14,4 @@
   }
 </style>
 
-<a {href} target={blank ? '_blank' : undefined} rel="noopener noreferer"><slot /><div class="icon"><GoLinkExternal /></div></a> 
+<a {href} target={blank ? '_blank' : undefined} rel="noopener noreferer"><slot /><span class="icon"><GoLinkExternal /></span></a> 

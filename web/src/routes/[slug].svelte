@@ -22,7 +22,7 @@
   <title>{post.title}</title>
 </svelte:head>
 
-<article>
+<article class="post">
   <h1><a rel='prefetch' href='/{post.slug.current}'>{post.title}</a></h1>
 
   <!-- <div class="raw-data"><pre>{JSON.stringify(post, null, 2)}</pre></div> -->

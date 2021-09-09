@@ -2,20 +2,80 @@
 ========================================= COLORS
 ====================================== */
 
+
+//  Set all base colors
+$colors: (
+  red: #FF0000,
+  blue: #1797ff,
+  green: #59d488,
+  egg: #fff7aa,
+  navy: #180f50,
+);
+
+$ultra-black: #000000;
+$black: #1C1D1D;
+$white: #ffffff;
+$gray-lighter: #BFBFBF;
+$gray: #B7B7B7;
+$gray-darker: #727272;
+$transparent-gray: #26292B1A;
+
+//  Create shades of each color and return values as map
+@function color-map($color, $values) {
+  $base:      $values;
+  $lightest:  mix(white, $values, 80%);
+  $lighter:   mix(white, $values, 20%);
+  $darker:    mix(#555, $values, 20%);
+  $darkest:   mix(black, $values, 20%);
+
+  $color-shades: (
+      #{$color}-base:       $base,
+      #{$color}-lightest:   $lightest,
+      #{$color}-lighter:    $lighter,
+      #{$color}-darker:     $darker,
+      #{$color}-darkest:    $darkest
+  );
+
+  @return $color-shades;
+}
+ 
+//  Set up master map for all colors
+@function color-maps($colors) {
+  $color-map: ();
+
+  @each $color, $value in $colors {
+      $map: (color-map($color, $value));
+      $color-map: map-merge($color-map, $map);
+  }
+
+  @return $color-map;
+}
+
+//  Initiate maps function to build maps
+$color-map: color-maps($colors);
+
+//  Create mixin to better call colors from map
+@function color($color, $shade: base) {
+  @return map-get($color-map, #{$color}-#{$shade});
+}
+
 :root {
-  --primary: #FC0100;
-  --secondary: #1797ff;
-  --tertiary: #59d488;
-  --quaternary: #fff7aa;
-  --quinary: #180f50;
-  --black: #26292B;
-  --ultra-black: #000000;
-  --white: #ffffff;
-  --background-color: #ffffff;
-  --text: #333333;
-  --light-gray: #bfbfbf;
-  --gray: #B4A6A6;
-  --dark-gray: #8E7D7D;
+  --background-color: #{$white};
+  --text-color: #{$black};
+  --text-color-hover: #{$gray};
+  --text-color-lighter: #{$gray-darker};
+  --text-color-lightest: #{$gray};
+  --hr-color: #{$transparent-gray};
+  --accent-color: #{color(red)};
+  --accent-color-hover: #{color(red, lighter)};
+  --secondary-color: #{color(blue)};
+  --secondary-color-hover: #{color(blue, lighter)};
+  --tertiary-color: #{color(green)};
+  --tertiary-color-hover: #{color(green, lighter)};
+  --quaternary-color: #{color(egg)};
+  --quaternary-color-hover: #{color(egg, lighter)};
+  --quinary-color: #{color(navy)};
+  --quinary-color-hover: #{color(navy, lighter)};
 }
 
 /* ======================================
@@ -85,9 +145,9 @@ header, main, footer {
 ====================================== */
 
 @mixin runway {
-max-width: 72rem;
-margin-left: auto;
-margin-right: auto;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -96,12 +156,23 @@ margin-right: auto;
 ====================================== */
     
 @mixin display {
-font-family: neue-haas-grotesk-display, sans-serif;
-font-weight: 700;
-font-style: normal;
+  font-family: garamond-premier-pro-display, Times, serif;
+  font-weight: 400;
 }
+
+@mixin subhead {
+  font-family: garamond-premier-pro-subhead, Times, serif;
+  font-weight: 400;
+}
+
+@mixin caption {
+  font-family: garamond-premier-pro-caption, Times, serif;
+  font-weight: 400;
+}
+
 @mixin grotesk {
-font-family: neue-haas-grotesk-text, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: normal;
 }
   
   

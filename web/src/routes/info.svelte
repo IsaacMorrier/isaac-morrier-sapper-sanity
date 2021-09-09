@@ -1,9 +1,35 @@
-<svelte:head>
+<script>
+
+import SanityClientConstructor from "@sanity/client";
+
+</script>
+  <svelte:head>
 	<title>About Isaac</title>
-</svelte:head>
+	<style lang="scss">
+		@import './style/theme.scss';
+		:root {
+			--background-color: #{ color(red)};
+			--text-color: #{ color(egg)};
+			--text-color-hover: #{ mix(color(egg), color(red), 80%)};
+			--text-color-lighter: #{ color(egg)};
+			--text-color-lightest: #{ color(egg)};
+			--hr-color:  #{$transparent-gray};
+			--accent-color: #{ color(egg)};
+			--accent-color-hover: #{ mix(color(egg), color(red), 80%)};
+			--secondary-color: #{ color(egg)};
+			--secondary-color-hover: #{ mix(color(egg), color(red), 80%)};
+			--tertiary-color: #{ color(egg)};
+			--tertiary-color-hover: #{ mix(color(egg), color(red), 80%)};
+			--quaternary-color: #{ color(egg)};
+			--quaternary-color-hover: #{ mix(color(egg), color(red), 80%)};
+			--quinary-color: #{ color(egg)};
+			--quinary-color-hover: #{ mix(color(egg), color(red), 80%)};
+		}
+	</style>
+  </svelte:head>
 
 <article>
-	<p class="lede">Hi, I’m Isaac Morrier.</p>
+	<h1>Hi,<br> I’m Isaac Morrier</h1>
 
 	<p class="lede">I study branding, products, people, material culture, and the effects technology has on all of these things and help companies create competitive advantage with that insight.</p>
 	
@@ -21,6 +47,8 @@
 	<ul><li>Any World Series outcome after 2004</li></ul>
 	
 	<p>I currently work as a strategist at Design Army in Washington, DC and previously at Verb Energy, DigitasLBi, Trinity Mobile Networks, SapientNitro, and the Behavioral Research Lab at the Yale School of Management. I graduated from Yale University with my B.A. in Sociology in 2017.</p>
+
+	<p>I built this website with Sapper, Sanity, and Netlify.</p>
 	
 	<p>Humans who want to work with me can contact me at isaac@isaacmorrier.com.</p>
 	
