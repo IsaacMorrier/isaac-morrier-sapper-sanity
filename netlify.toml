@@ -9,3 +9,12 @@
   to = "/404"
   status = 404
 
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+  trailingSlash = true
+  exclude = [
+    '**/**/service-worker-/'
+    '**/**/404/'
+  ]
