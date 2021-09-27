@@ -13,8 +13,9 @@
 package = "@netlify/plugin-sitemap"
 
   [plugins.inputs]
+  buildDir = "web/__sapper__/export"
   trailingSlash = true
   exclude = [
-    '**/**/service-worker-/'
-    '**/**/404/'
+    'web/__sapper__/export/service-worker-'
+    'web/__sapper__/export/404'
   ]
