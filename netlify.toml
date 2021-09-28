@@ -3,8 +3,3 @@
   to = "https://isaacmorrier.com/:splat"
   force = true
   status = 301
-
-[[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 200
