@@ -63,7 +63,8 @@
 </style>
   
 <svelte:head>
-	<title>@isaacmorrier</title>
+	<title>Isaac Morrier</title>
+	<meta name='description' content='Hi, I’m Isaac. I study branding, products, people, material culture, and the effects technology has on all of these things and help companies create competitive advantage with that insight.'>
 </svelte:head>
 
 <CategoriesList {posts} bind:active={filter}/>
